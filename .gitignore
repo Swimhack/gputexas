@@ -1,37 +1,41 @@
-# Only track projects directory - ignore everything else
-/*
-!/.gitignore
-!/projects/
+# Project files (standard Node.js/Vite project ignores)
+node_modules
+dist
+dist-ssr
+*.local
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# WordPress backups
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local files (ignored from repository but kept locally)
+# These directories and files exist locally but are not tracked in Git
+DESIGN/
+*.html
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.md
 *.wpress
-
-# Large zip files
 *.zip
-
-# Sensitive files with passwords/credentials
+temp_ocr/
 *godaddy*
 *GODADDY*
 *.credentials
 *.secrets
-
-# Temporary directories
-temp_ocr/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-
-# Logs
-*.log
-
-# Node modules (if any)
-node_modules/
-
-# Build outputs
-dist/
-build/
