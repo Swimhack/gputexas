@@ -1,6 +1,9 @@
 # WordPress backups
 *.wpress
 
+# Large zip files
+*.zip
+
 # Temporary directories
 temp_ocr/
 
