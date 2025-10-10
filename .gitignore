@@ -1,0 +1,23 @@
+# WordPress backups
+*.wpress
+
+# Temporary directories
+temp_ocr/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node modules (if any)
+node_modules/
+
+# Build outputs
+dist/
+build/
