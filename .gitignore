@@ -4,6 +4,12 @@
 # Large zip files
 *.zip
 
+# Sensitive files with passwords/credentials
+*godaddy*
+*GODADDY*
+*.credentials
+*.secrets
+
 # Temporary directories
 temp_ocr/
 
