@@ -1,0 +1,20 @@
+node_modules
+dist
+.git
+.gitignore
+README.md
+DESIGN
+temp_ocr
+*.log
+*.wpress
+# Exclude specific local files
+gpu-texas-*.html
+mockup-*.html
+hero-background-premium.jpg
+hero-background-professional.jpg
+hero-background-visible.jpg
+*.gif
+*.md
+gputexas.com-*.wpress
+TJ_REDESIGN_PRESENTATION.md
+REDESIGN_PLAN.md
