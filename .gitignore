@@ -1,9 +1,11 @@
-# Project files (standard Node.js/Vite project ignores)
-node_modules
-dist
-dist-ssr
+# Dependencies & build output
+node_modules/
+dist/
+dist-ssr/
 *.local
-logs
+
+# Logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -14,7 +16,7 @@ lerna-debug.log*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 Thumbs.db
 *.suo
@@ -23,19 +25,26 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Local files (ignored from repository but kept locally)
-# These directories and files exist locally but are not tracked in Git
-DESIGN/
-*.html
-*.jpg
-*.png
-*.jpeg
-*.gif
-*.md
+# Large binary files (exceed GitHub 100MB limit)
 *.wpress
-*.zip
-temp_ocr/
-*godaddy*
-*GODADDY*
+DESIGN/Website Images/
+DESIGN/all-in-one-wp-migration-unlimited-extension.zip
+DESIGN/NEW/*.zip
+BACKUPS/*.wpress
+BACKUPS/*.sql
+BACKUPS/*.tar.gz
+
+# Sensitive files
 *.credentials
 *.secrets
+*.env
+*.env.*
+.env.local
+*godaddy*
+*GODADDY*
+
+# Temporary files
+temp_ocr/
+
+# OS files
+desktop.ini

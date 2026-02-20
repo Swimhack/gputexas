@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Products Unlimited - Updated Design Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .main-nav li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .main-nav li a:hover,
+        .main-nav li a.active {
+            border-bottom-color: #ff6b35;
+        }
+
+        .search-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-icon,
+        .menu-toggle {
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="fire" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:%23ff4500;stop-opacity:1" /><stop offset="30%" style="stop-color:%23ff6b35;stop-opacity:1" /><stop offset="70%" style="stop-color:%23f7931e;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ffd700;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23fire)" /></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 8px;
+        }
+
+        .category-buttons {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: rgba(0,0,0,0.7);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+            min-width: 200px;
+        }
+
+        .category-btn:hover {
+            background: rgba(255, 107, 53, 0.9);
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 80px 0;
+            background-color: #2a2a2a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 60px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-category {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+
+        .product-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(45deg, #333, #555);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .product-subtitle {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product-count {
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .view-all-btn {
+            display: inline-block;
+            background: #ff6b35;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Featured Products Grid */
+        .featured-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .featured-product {
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .featured-product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .featured-product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #333;
+        }
+
+        .featured-product-info {
+            padding: 20px;
+        }
+
+        .featured-product-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .featured-product-brand {
+            color: #ff6b35;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .quote-btn {
+            background: transparent;
+            border: 2px solid #ff6b35;
+            color: #ff6b35;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .quote-btn:hover {
+            background: #ff6b35;
+            color: #ffffff;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #333;
+            padding: 60px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .about-title {
+            color: #ffffff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta {
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            background: #ff6b35;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 48px;
+                letter-spacing: 4px;
+            }
+            
+            .category-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .category-btn {
+                min-width: 250px;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="social-links">
+                <a href="#">📧</a>
+                <a href="#">📘</a>
+                <a href="#">📷</a>
+            </div>
+            <div class="contact-info">
+                <span>📞 281.482.4478</span>
+                <a href="mailto:TJ@gputexas.com">✉️ TJ@gputexas.com</a>
+            </div>
+        </div>
+        
+        <div class="logo-nav">
+            <div class="logo">
+                <div class="logo-icon">🔥</div>
+                <div class="logo-text">GAS PRODUCTS<br><small>UNLIMITED</small></div>
+            </div>
+            
+            <nav class="main-nav">
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#lights">LIGHTS</a></li>
+                <li><a href="#grills">GRILLS</a></li>
+                <li><a href="#logs">LOGS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+            </nav>
+            
+            <div class="search-menu">
+                <span class="search-icon">🔍</span>
+                <span class="menu-toggle">☰</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">GAS PRODUCTS</h1>
+            <div class="category-buttons">
+                <a href="#lights" class="category-btn">LIGHTS</a>
+                <a href="#grills" class="category-btn">GRILLS</a>
+                <a href="#logs" class="category-btn">LOGS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="container">
+            <h2 class="section-title">Our Product Categories</h2>
+            <p class="section-subtitle">Houston's Premier Gas Products & Outdoor Living Specialists</p>
+            
+            <div class="product-grid">
+                <!-- Gas Lights Category -->
+                <div class="product-category" id="lights">
+                    <img src="./DESIGN/Website Images/Lights/St. James Lighting/Lanterns/Ashley.png" 
+                         alt="Gas Lights" class="product-image"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="product-info">
+                        <h3 class="product-title">Gas Lights</h3>
+                        <p class="product-subtitle">St. James Lighting • Coppersmith • Legendary</p>
+                        <p class="product-count">60+ Premium Gas Lighting Options</p>
+                        <a href="#" class="view-all-btn">Browse Collection →</a>
+                    </div>
+                </div>
+
+                <!-- Gas Grills Category -->
+                <div class="product-category" id="grills">
+                    <img src="./DESIGN/Website Images/Grills/Firemagic/Aurora/FM_A430i_Aurora-Built-In-Grill.jpg" 
+                         alt="Gas Grills" class="product-image"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="product-info">
+                        <h3 class="product-title">Gas Grills</h3>
+                        <p class="product-subtitle">Fire Magic Aurora • Echelon • Choice Series</p>
+                        <p class="product-count">15+ Premium Outdoor Grills</p>
+                        <a href="#" class="view-all-btn">Browse Collection →</a>
+                    </div>
+                </div>
+
+                <!-- Gas Logs Category -->
+                <div class="product-category" id="logs">
+                    <img src="./DESIGN/Website Images/Logs/Real Fyre - Vent Free/G10/chas_24_charred_aged_split_oak.jpg" 
+                         alt="Gas Logs" class="product-image"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="product-info">
+                        <h3 class="product-title">Gas Logs</h3>
+                        <p class="product-subtitle">Real Fyre Vented & Vent-Free Systems</p>
+                        <p class="product-count">35+ Gas Log Options</p>
+                        <a href="#" class="view-all-btn">Browse Collection →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <h3 class="section-title" style="margin-bottom: 30px;">Featured Products</h3>
+            <div class="featured-products">
+                <!-- Fire Magic Grill -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Grills/Firemagic/Aurora/FM_A540i_Built-In-Grill_Open.jpg" 
+                         alt="Fire Magic Aurora A540i"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Aurora A540i Built-In Grill</h4>
+                        <p class="featured-product-brand">Fire Magic</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Coppersmith Light -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Lights/Coppersmith/CO.png" 
+                         alt="Coppersmith Gas Light"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Classic Coppersmith Light</h4>
+                        <p class="featured-product-brand">Coppersmith</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Real Fyre Log Set -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Logs/Real Fyre - Vent Free/G18/efv_24_evening_fyre.jpg" 
+                         alt="Real Fyre Evening Fyre"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Evening Fyre Gas Logs</h4>
+                        <p class="featured-product-brand">Real Fyre</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- St. James Lantern -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Lights/St. James Lighting/Lanterns/Aspen.png" 
+                         alt="St. James Aspen Lantern"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Aspen Gas Lantern</h4>
+                        <p class="featured-product-brand">St. James Lighting</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Fire Magic Echelon -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Grills/Firemagic/Echelon/FM_E660i_Built-In-Grill_Digital_Open.jpg" 
+                         alt="Fire Magic Echelon"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Echelon E660i Digital</h4>
+                        <p class="featured-product-brand">Fire Magic</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Real Fyre Charred -->
+                <div class="featured-product">
+                    <img src="./DESIGN/Website Images/Logs/Real Fyre - Vent Free/G10/RF_CHAB-24_24in-Charred-Alpine-Birch.jpg" 
+                         alt="Real Fyre Charred Alpine Birch"
+                         onerror="this.style.background='linear-gradient(45deg, #ff6b35, #333)'">
+                    <div class="featured-product-info">
+                        <h4 class="featured-product-title">Charred Alpine Birch</h4>
+                        <p class="featured-product-brand">Real Fyre</p>
+                        <a href="#" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">Houston's Gas Products Specialists</h2>
+                    <p>For over a decade, Gas Products Unlimited has been Houston's premier destination for high-quality gas lighting, outdoor grills, and gas log systems. We specialize in premium brands like Fire Magic, Real Fyre, St. James Lighting, and Coppersmith.</p>
+                    
+                    <p>Our experienced team provides expert consultation, professional installation, and ongoing support for all your outdoor living needs. From elegant gas lanterns to professional-grade outdoor kitchens, we help transform your outdoor space.</p>
+                    
+                    <div class="contact-cta">
+                        <a href="#contact" class="cta-btn">Get Your Free Quote Today</a>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div style="background: #1a1a1a; padding: 30px; border-radius: 10px;">
+                        <h3 style="color: #ff6b35; font-size: 48px; margin-bottom: 10px;">110+</h3>
+                        <p style="color: #ffffff; margin-bottom: 20px;">Premium Products</p>
+                        
+                        <h3 style="color: #ff6b35; font-size: 48px; margin-bottom: 10px;">15+</h3>
+                        <p style="color: #ffffff; margin-bottom: 20px;">Years Experience</p>
+                        
+                        <h3 style="color: #ff6b35; font-size: 48px; margin-bottom: 10px;">1000+</h3>
+                        <p style="color: #ffffff;">Satisfied Customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <a href="tel:281.482.4478">📞 281.482.4478</a>
+                    <a href="mailto:TJ@gputexas.com">✉️ TJ@gputexas.com</a>
+                    <p style="color: #cccccc;">Serving Greater Houston Area</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Product Categories</h3>
+                    <a href="#lights">Gas Lights (60+ Options)</a>
+                    <a href="#grills">Gas Grills (15+ Models)</a>
+                    <a href="#logs">Gas Logs (35+ Styles)</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Premium Brands</h3>
+                    <a href="#">Fire Magic</a>
+                    <a href="#">Real Fyre</a>
+                    <a href="#">St. James Lighting</a>
+                    <a href="#">Coppersmith</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">Professional Installation</a>
+                    <a href="#">Custom Design</a>
+                    <a href="#">Maintenance & Repair</a>
+                    <a href="#">Free Consultations</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid #333;">
+                <p style="color: #666;">&copy; 2025 Gas Products Unlimited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
