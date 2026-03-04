@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "wordpress": {
+      "command": "node",
+      "args": ["wp-mcp-proxy.mjs"],
+      "cwd": "C:\\STRICKLAND\\Strickland Technology Marketing\\gputexas.com"
+    }
+  }
+}

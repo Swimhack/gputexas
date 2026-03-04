@@ -30,9 +30,7 @@ Thumbs.db
 DESIGN/Website Images/
 DESIGN/all-in-one-wp-migration-unlimited-extension.zip
 DESIGN/NEW/*.zip
-BACKUPS/*.wpress
-BACKUPS/*.sql
-BACKUPS/*.tar.gz
+BACKUPS/
 
 # Sensitive files
 *.credentials
