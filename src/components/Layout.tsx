@@ -76,7 +76,7 @@ function Layout({ children }: LayoutProps) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <Link to="/" className="font-medium hover:text-orange-500 transition-colors">HOME</Link>
-              <a href="/lights" className="font-medium hover:text-orange-500 transition-colors">LIGHTS</a>
+              <a href="https://gputexas.com/lights" className="font-medium hover:text-orange-500 transition-colors">LIGHTS</a>
               
               {/* Grills Dropdown */}
               <div className="relative group">
@@ -126,9 +126,9 @@ function Layout({ children }: LayoutProps) {
                 </div>
               </div>
 
-              <a href="/blog" className="font-medium hover:text-orange-500 transition-colors">BLOG</a>
-              <a href="/about" className="font-medium hover:text-orange-500 transition-colors">ABOUT</a>
-              <a href="/contact" className="font-medium hover:text-orange-500 transition-colors">CONTACT US</a>
+              <a href="https://gputexas.com/blog" className="font-medium hover:text-orange-500 transition-colors">BLOG</a>
+              <a href="https://gputexas.com/about" className="font-medium hover:text-orange-500 transition-colors">ABOUT</a>
+              <a href="/#contact" className="font-medium hover:text-orange-500 transition-colors">CONTACT US</a>
             </div>
 
             {/* Search and Menu */}
@@ -151,7 +151,7 @@ function Layout({ children }: LayoutProps) {
           } overflow-hidden`}>
             <div className="py-4 space-y-2">
               <a href="/" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">HOME</a>
-              <a href="/lights" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">LIGHTS</a>
+              <a href="https://gputexas.com/lights" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">LIGHTS</a>
               
               {/* Mobile Grills Menu */}
               <div>
@@ -197,9 +197,9 @@ function Layout({ children }: LayoutProps) {
                 </div>
               </div>
 
-              <a href="/blog" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">BLOG</a>
-              <a href="/about" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">ABOUT</a>
-              <a href="/contact" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">CONTACT US</a>
+              <a href="https://gputexas.com/blog" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">BLOG</a>
+              <a href="https://gputexas.com/about" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">ABOUT</a>
+              <a href="/#contact" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500 transition-colors">CONTACT US</a>
             </div>
           </div>
         </div>

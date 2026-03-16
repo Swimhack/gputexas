@@ -1,169 +1,136 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-interface Product {
-  id: number;
-  name?: string;
-  title?: { rendered: string };
-  short_description?: string;
-  excerpt?: { rendered: string };
-  images?: Array<{ src: string }>;
-  _embedded?: {
-    'wp:featuredmedia'?: Array<{ source_url: string }>;
-  };
-  permalink?: string;
-  link?: string;
-}
+const LOGS = [
+  {
+    name: 'Real Fyre Charred Series — Vented',
+    description: 'Hand-painted, ultra-realistic charred log sets. Available in Alpine Birch, Aged Split Oak, and Frontier Oak. Sizes 18"–30".',
+    img: 'https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?auto=format&fit=crop&w=600&q=80',
+    badge: 'BESTSELLER',
+    href: 'https://gputexas.com/logs',
+  },
+  {
+    name: 'Real Fyre Evening Fyre — Vent-Free',
+    description: 'G18 & G19 burner system with Evening Fyre log sets. No chimney needed. Available in natural gas and propane. Sizes 18"–30".',
+    img: 'https://images.unsplash.com/photo-1513453575765-7fa1c26a93cf?auto=format&fit=crop&w=600&q=80',
+    badge: 'FEATURED',
+    href: 'https://gputexas.com/logs',
+  },
+  {
+    name: 'Real Fyre American Oak — Vented',
+    description: 'Classic American Oak log set with natural-looking bark and wood detail. Perfect for traditional or transitional fireplaces.',
+    img: 'https://images.unsplash.com/photo-1554071807-71234680f47a?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    href: 'https://gputexas.com/logs',
+  },
+  {
+    name: 'Real Fyre G10 Burner — Vent-Free',
+    description: 'G10 series vent-free burner system. Heats up to 1,500 sq ft with 99.9% efficiency. Includes ODS pilot safety system.',
+    img: 'https://images.unsplash.com/photo-1476080819537-ed918f9c4570?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    href: 'https://gputexas.com/logs',
+  },
+  {
+    name: 'Real Fyre Split Oak — Vented',
+    description: 'Realistically detailed split oak log set for vented fireplaces. Hand-painted to match natural wood tones and character.',
+    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    href: 'https://gputexas.com/logs',
+  },
+  {
+    name: 'Remote Control Systems',
+    description: 'On/Off and variable flame remote controls compatible with all Real Fyre systems. Wall switches and hand-held options available.',
+    img: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    href: 'https://gputexas.com/logs/remote-controls',
+  },
+];
 
 function GasLogsPage() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      
-      // Try WooCommerce first
-      let response = await fetch('https://gputexas.com/wp-json/wc/v3/products?category=logs&per_page=12');
-      
-      if (!response.ok) {
-        // Fallback to WordPress posts with logs category
-        response = await fetch('https://gputexas.com/wp-json/wp/v2/posts?categories=logs&per_page=12&_embed');
-      }
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch products');
-      }
-      
-      const data = await response.json();
-      setProducts(data);
-    } catch (err) {
-      console.error('Error fetching products:', err);
-      setError('Unable to load products. Please check your internet connection or try again later.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const getProductTitle = (product: Product): string => {
-    return product.name || product.title?.rendered || 'Gas Log Set';
-  };
-
-  const getProductDescription = (product: Product): string => {
-    const desc = product.short_description || product.excerpt?.rendered || 'Premium gas log set for authentic fireplace experience.';
-    return desc.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-  };
-
-  const getProductImage = (product: Product): string => {
-    return product.images?.[0]?.src || 
-           product._embedded?.['wp:featuredmedia']?.[0]?.source_url || 
-           '/hero-background-firemagic.jpg.png';
-  };
-
-  const getProductLink = (product: Product): string => {
-    return product.permalink || product.link || `https://gputexas.com/?p=${product.id}`;
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen pt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading gas logs...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen pt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="text-center">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-8 max-w-md mx-auto">
-              <h3 className="text-lg font-semibold text-red-800 mb-2">Error Loading Products</h3>
-              <p className="text-red-600 mb-4">{error}</p>
-              <button 
-                onClick={fetchProducts}
-                className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors"
-              >
-                Try Again
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Page Header */}
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Gas Logs</h1>
-          <p className="text-xl text-gray-300">Authentic fireplace experiences with Real Fyre gas log sets</p>
+          <p className="text-xl text-gray-300">
+            Authentic Real Fyre fireplace experiences — 35+ sets in stock
+          </p>
         </div>
       </div>
 
       {/* Products Grid */}
       <div className="container mx-auto px-4 py-12">
-        {products.length === 0 ? (
-          <div className="text-center py-12">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">No Products Available</h3>
-            <p className="text-gray-600 mb-6">We're working on adding gas log products to this section.</p>
-            <a 
-              href="/contact" 
-              className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors"
+        <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold mb-1">Real Fyre Log Collections</h2>
+            <p className="text-gray-600">Vented and vent-free options — contact us for pricing</p>
+          </div>
+          <a
+            href="https://gputexas.com/logs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition-colors font-semibold whitespace-nowrap"
+          >
+            View Full Catalog →
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {LOGS.map((log) => (
+            <div
+              key={log.name}
+              className="relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              Contact Us for Product Information
+              {log.badge && (
+                <div className="absolute top-4 left-4 z-10 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                  {log.badge}
+                </div>
+              )}
+              <div className="h-56 overflow-hidden">
+                <img
+                  src={log.img}
+                  alt={log.name}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">{log.name}</h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{log.description}</p>
+                <a
+                  href={log.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-500 hover:text-orange-600 font-medium"
+                >
+                  Request a Quote →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Banner */}
+        <div className="mt-16 bg-gray-900 text-white rounded-2xl p-10 text-center">
+          <h3 className="text-2xl font-bold mb-3">Vented or Vent-Free — Which Is Right for You?</h3>
+          <p className="text-gray-300 mb-6 max-w-xl mx-auto">
+            Our team can help you choose the right log set for your fireplace. We service the
+            greater Houston area and carry 35+ Real Fyre sets ready to ship.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="tel:2814824478"
+              className="inline-block bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-colors font-semibold"
+            >
+              Call (281) 482-4478
+            </a>
+            <a
+              href="/#contact"
+              className="inline-block bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full hover:bg-white/20 transition-colors font-semibold"
+            >
+              Request a Quote
             </a>
           </div>
-        ) : (
-          <>
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-2">Available Gas Log Sets ({products.length})</h2>
-              <p className="text-gray-600">Explore our collection of premium gas log sets</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="h-64 bg-gray-200">
-                    <img 
-                      src={getProductImage(product)}
-                      alt={getProductTitle(product)}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = '/hero-background-firemagic.jpg.png';
-                      }}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{getProductTitle(product)}</h3>
-                    <p className="text-gray-600 mb-4">{getProductDescription(product)}</p>
-                    <a 
-                      href={getProductLink(product)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors"
-                    >
-                      Learn More →
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
+        </div>
       </div>
     </div>
   );

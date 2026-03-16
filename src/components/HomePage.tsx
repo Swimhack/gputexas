@@ -63,12 +63,16 @@ function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">Fire Magic Grills</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+                  alt="Fire Magic Gas Grills"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Gas Grills</h3>
-                <p className="text-gray-600 mb-4">Premium outdoor cooking solutions</p>
+                <p className="text-gray-600 mb-4">Premium Fire Magic outdoor cooking solutions</p>
                 <Link to="/grills/gas" className="text-orange-500 hover:text-orange-600 font-medium">
                   View Collection →
                 </Link>
@@ -76,25 +80,33 @@ function HomePage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">Gas Lighting</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=600&q=80"
+                  alt="Coppersmith Gas Lighting"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Gas Lights</h3>
-                <p className="text-gray-600 mb-4">Beautiful outdoor lighting solutions</p>
-                <a href="/lights" className="text-orange-500 hover:text-orange-600 font-medium">
+                <p className="text-gray-600 mb-4">Coppersmith & St. James outdoor lighting</p>
+                <a href="https://gputexas.com/lights" className="text-orange-500 hover:text-orange-600 font-medium">
                   View Collection →
                 </a>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">Real Fyre Logs</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?auto=format&fit=crop&w=600&q=80"
+                  alt="Real Fyre Gas Logs"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Gas Logs</h3>
-                <p className="text-gray-600 mb-4">Authentic fireplace experiences</p>
+                <p className="text-gray-600 mb-4">Authentic Real Fyre fireplace experiences</p>
                 <Link to="/logs/gas" className="text-orange-500 hover:text-orange-600 font-medium">
                   View Collection →
                 </Link>
@@ -102,13 +114,17 @@ function HomePage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">Fire Features</span>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+                  alt="Outdoor Fire Features"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Fire Features</h3>
-                <p className="text-gray-600 mb-4">Stunning outdoor focal points</p>
-                <a href="/outdoor" className="text-orange-500 hover:text-orange-600 font-medium">
+                <p className="text-gray-600 mb-4">American Fyre Designs fire bowls & tables</p>
+                <a href="https://gputexas.com/outdoor" className="text-orange-500 hover:text-orange-600 font-medium">
                   View Collection →
                 </a>
               </div>
